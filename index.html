@@ -38,7 +38,9 @@ header {
     justify-content: center;
     padding: 35px;
     background:
-        radial-gradient(circle at 50% 40%, #25252a 0%, #0b0b0d 55%);
+        radial-gradient(circle at 15% 20%, #3a3038 0%, transparent 35%),
+        radial-gradient(circle at 85% 75%, #26333b 0%, transparent 40%),
+        #0b0b0d;
 }
 
 .small {
@@ -170,6 +172,36 @@ footer {
         grid-column: span 1;
     }
 }
+    .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.92);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.lightbox img {
+    max-width: 95%;
+    max-height: 90vh;
+    object-fit: contain;
+}
+
+.lightbox.active {
+    display: flex;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-family: Arial, sans-serif;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    }
 </style>
 </head>
 
@@ -229,6 +261,32 @@ footer {
 <footer>
     THE SKETCHBOOK · 2026
 </footer>
+<div class="lightbox" id="lightbox">
+    <span class="lightbox-close" id="lightboxClose">&times;</span>
+    <img id="lightboxImage" src="" alt="Enlarged sketch">
+        </div>
+    <script>
+const images = document.querySelectorAll(".card img");
+const lightbox = document.getElementById("lightbox");
+const lightboxImage = document.getElementById("lightboxImage");
+const lightboxClose = document.getElementById("lightboxClose");
 
+images.forEach(img => {
+    img.addEventListener("click", () => {
+        lightboxImage.src = img.src;
+        lightbox.classList.add("active");
+    });
+});
+
+lightboxClose.addEventListener("click", () => {
+    lightbox.classList.remove("active");
+});
+
+lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) {
+        lightbox.classList.remove("active");
+    }
+});
+    </script>
 </body>
   </html>
