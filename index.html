@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>The Sketchbook</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #0b0b0d;
+    color: #f2f2f2;
+    font-family: Georgia, serif;
+}
+
+header {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 35px;
+    background:
+        radial-gradient(circle at 50% 40%, #25252a 0%, #0b0b0d 55%);
+}
+
+.small {
+    font-family: Arial, sans-serif;
+    letter-spacing: 4px;
+    font-size: 11px;
+    color: #999;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+h1 {
+    font-size: clamp(55px, 14vw, 130px);
+    line-height: 0.85;
+    font-weight: 400;
+    letter-spacing: -5px;
+}
+
+.subtitle {
+    margin-top: 35px;
+    max-width: 430px;
+    color: #aaa;
+    font-family: Arial, sans-serif;
+    line-height: 1.7;
+    font-size: 14px;
+}
+
+.scroll {
+    margin-top: 70px;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #777;
+}
+
+section {
+    padding: 80px 25px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.section-title {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: #888;
+    text-transform: uppercase;
+    margin-bottom: 35px;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.card {
+    overflow: hidden;
+    background: #151518;
+}
+
+.card img {
+    width: 100%;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.card:hover img {
+    transform: scale(1.04);
+}
+
+.card figcaption {
+    padding: 15px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    color: #999;
+}
+
+.card:nth-child(3) {
+    grid-column: span 2;
+}
+
+.quote {
+    text-align: center;
+    padding: 140px 25px;
+}
+
+.quote h2 {
+    font-size: clamp(35px, 8vw, 70px);
+    font-weight: 400;
+    line-height: 1;
+}
+
+.quote p {
+    margin-top: 25px;
+    font-family: Arial, sans-serif;
+    color: #777;
+    font-size: 12px;
+}
+
+footer {
+    padding: 40px 25px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: #555;
+}
+
+@media (max-width: 600px) {
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .card:nth-child(3) {
+        grid-column: span 1;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="small">Personal Art Archive</div>
+
+    <h1>THE<br>SKETCHBOOK</h1>
+
+    <p class="subtitle">
+        A collection of drawings, experiments and moments
+        captured one line at a time.
+    </p>
+
+    <div class="scroll">SCROLL TO EXPLORE ↓</div>
+</header>
+
+<section>
+    <div class="section-title">Selected Works</div>
+
+    <div class="gallery">
+
+        <figure class="card">
+            <img src="images/sketch1.jpg" alt="Sketch 1">
+            <figcaption>01 — Portrait Study</figcaption>
+        </figure>
+
+        <figure class="card">
+            <img src="images/sketch2.jpg" alt="Sketch 2">
+            <figcaption>02 — Study in Pencil</figcaption>
+        </figure>
+
+        <figure class="card">
+            <img src="images/sketch3.jpg" alt="Sketch 3">
+            <figcaption>03 — Character Study</figcaption>
+        </figure>
+
+        <figure class="card">
+            <img src="images/sketch4.jpg" alt="Sketch 4">
+            <figcaption>04 — Another Beginning</figcaption>
+        </figure>
+
+    </div>
+</section>
+
+<div class="quote">
+    <h2>
+        I didn't realise<br>
+        I was improving.
+    </h2>
+
+    <p>— A collection of the journey so far</p>
+</div>
+
+<footer>
+    THE SKETCHBOOK · 2026
+</footer>
+
+</body>
+  </html>
