@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Soham Shinde — The Sketchbook</title>
+<title>Soham Shinde | The Sketchbook</title>
 
 <style>
+
+/* =========================
+   BASIC RESET
+========================= */
 
 * {
     box-sizing: border-box;
@@ -19,13 +24,16 @@ html {
 }
 
 body {
-    background: #08090b;
-    color: #f2f2f2;
-    font-family: Georgia, serif;
+    background: #d8c5ad;
+    color: #29221d;
+    font-family: Georgia, "Times New Roman", serif;
     overflow-x: hidden;
 }
 
-/* CINEMATIC BACKGROUND */
+
+/* =========================
+   MAIN BACKGROUND
+========================= */
 
 body::before {
     content: "";
@@ -36,95 +44,111 @@ body::before {
 
     background:
         radial-gradient(
-            circle at 15% 15%,
-            rgba(94, 72, 105, 0.25),
+            circle at 15% 10%,
+            rgba(255,255,255,0.55),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 85% 30%,
+            rgba(153,105,74,0.22),
             transparent 30%
         ),
+
         radial-gradient(
-            circle at 85% 70%,
-            rgba(45, 74, 85, 0.22),
-            transparent 32%
-        ),
-        radial-gradient(
-            circle at 50% 100%,
-            rgba(100, 75, 50, 0.10),
-            transparent 30%
+            circle at 40% 90%,
+            rgba(116,83,60,0.18),
+            transparent 35%
         );
 }
 
-/* HERO */
+
+/* =========================
+   HERO
+========================= */
 
 header {
     min-height: 100vh;
 
+    padding: 45px 30px;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
-
-    padding: 40px 30px;
 
     position: relative;
     overflow: hidden;
 
     background:
         radial-gradient(
-            circle at 20% 25%,
-            rgba(72, 55, 76, 0.35),
+            circle at 20% 20%,
+            rgba(255,255,255,0.50),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 90% 80%,
+            rgba(121,83,59,0.25),
             transparent 35%
         ),
-        radial-gradient(
-            circle at 85% 75%,
-            rgba(35, 59, 68, 0.30),
-            transparent 38%
-        ),
-        #08090b;
+
+        linear-gradient(
+            135deg,
+            #eadcc9,
+            #d3bca0,
+            #b99b7d
+        );
 }
 
-/* subtle moving light */
+
+/* Moving soft light */
 
 header::after {
     content: "";
+
     position: absolute;
 
-    width: 320px;
-    height: 320px;
+    width: 300px;
+    height: 300px;
 
     border-radius: 50%;
 
-    background: rgba(255,255,255,0.025);
+    background: rgba(255,255,255,0.16);
 
     filter: blur(70px);
 
-    top: 20%;
-    right: -120px;
+    right: -100px;
+    top: 15%;
 
-    animation: floatLight 8s ease-in-out infinite alternate;
+    animation: floatingLight 8s ease-in-out infinite alternate;
 }
 
-@keyframes floatLight {
+@keyframes floatingLight {
 
     from {
-        transform: translateY(-30px);
+        transform: translateY(-20px);
     }
 
     to {
-        transform: translateY(80px);
+        transform: translateY(100px);
     }
-
 }
 
-/* ARTIST NAME */
+
+/* =========================
+   ARTIST NAME
+========================= */
 
 .artist {
     font-family: "Times New Roman", serif;
 
-    font-size: 17px;
+    font-size: 18px;
 
-    letter-spacing: 5px;
+    letter-spacing: 7px;
+
+    color: #493a2f;
 
     text-transform: uppercase;
-
-    color: #d4d0d6;
 
     margin-bottom: 65px;
 
@@ -133,16 +157,19 @@ header::after {
     animation: fadeUp 1s ease forwards;
 }
 
-/* SMALL LABEL */
+
+/* =========================
+   SMALL TITLE
+========================= */
 
 .small {
     font-family: Arial, sans-serif;
 
-    letter-spacing: 5px;
-
     font-size: 10px;
 
-    color: #777;
+    letter-spacing: 5px;
+
+    color: #705f50;
 
     text-transform: uppercase;
 
@@ -153,61 +180,67 @@ header::after {
     animation: fadeUp 1s ease 0.2s forwards;
 }
 
-/* MAIN TITLE */
+
+/* =========================
+   MAIN TITLE
+========================= */
 
 h1 {
-    font-size: clamp(58px, 14vw, 135px);
+    font-size: clamp(60px, 14vw, 135px);
 
-    line-height: 0.83;
+    line-height: 0.82;
 
     font-weight: 400;
 
     letter-spacing: -6px;
 
-    max-width: 900px;
+    color: #2c241e;
 
     opacity: 0;
 
-    animation: titleReveal 1.3s cubic-bezier(.2,.7,.2,1) 0.3s forwards;
+    animation: titleReveal 1.3s ease 0.3s forwards;
 }
 
 @keyframes titleReveal {
 
     from {
         opacity: 0;
-        transform: translateY(50px);
-        letter-spacing: -12px;
+        transform: translateY(45px);
     }
 
     to {
         opacity: 1;
         transform: translateY(0);
-        letter-spacing: -6px;
     }
-
 }
 
-/* SUBTITLE */
+
+/* =========================
+   DESCRIPTION
+========================= */
 
 .subtitle {
-    margin-top: 38px;
+    margin-top: 40px;
 
     max-width: 480px;
 
-    color: #999;
-
     font-family: Arial, sans-serif;
+
+    font-size: 14px;
 
     line-height: 1.8;
 
-    font-size: 14px;
+    color: #5e5146;
 
     opacity: 0;
 
     animation: fadeUp 1s ease 0.7s forwards;
 }
 
-/* SCROLL */
+
+/* =========================
+   SCROLL TEXT
+========================= */
 
 .scroll {
     margin-top: 75px;
@@ -218,9 +251,7 @@ h1 {
 
     letter-spacing: 4px;
 
-    color: #666;
-
-    opacity: 0;
+    color: #66564a;
 
     animation:
         fadeUp 1s ease 1s forwards,
@@ -236,8 +267,12 @@ h1 {
     50% {
         opacity: 1;
     }
-
 }
+
+
+/* =========================
+   FADE UP
+========================= */
 
 @keyframes fadeUp {
 
@@ -250,20 +285,23 @@ h1 {
         opacity: 1;
         transform: translateY(0);
     }
-
 }
 
-/* SECTION */
+
+/* =========================
+   GALLERY SECTION
+========================= */
 
 section {
-    padding: 120px 25px;
-
     max-width: 1150px;
 
     margin: auto;
+
+    padding: 120px 25px;
 }
 
-/* SECTION TITLE */
+
+/* Section title */
 
 .section-title {
     font-family: Arial, sans-serif;
@@ -272,26 +310,29 @@ section {
 
     letter-spacing: 5px;
 
-    color: #777;
-
     text-transform: uppercase;
+
+    color: #66564a;
 
     margin-bottom: 45px;
 }
 
-/* GALLERY */
+
+/* =========================
+   GALLERY
+========================= */
 
 .gallery {
     display: grid;
 
     grid-template-columns: repeat(2, 1fr);
 
-    gap: 25px;
+    gap: 28px;
 
-    animation: galleryReveal 1.2s ease forwards;
+    animation: galleryAppear 1.2s ease forwards;
 }
 
-@keyframes galleryReveal {
+@keyframes galleryAppear {
 
     from {
         opacity: 0;
@@ -302,39 +343,44 @@ section {
         opacity: 1;
         transform: translateY(0);
     }
-
 }
 
-/* CARD */
+
+/* =========================
+   SKETCH CARDS
+========================= */
 
 .card {
-    overflow: hidden;
-
-    background: #111216;
-
-    border: 1px solid rgba(255,255,255,0.07);
-
     position: relative;
+
+    overflow: hidden;
 
     cursor: pointer;
 
+    background: #eee3d4;
+
+    border: 1px solid rgba(72,53,39,0.15);
+
+    box-shadow:
+        0 15px 40px rgba(70,50,35,0.12);
+
     transition:
         transform 0.5s ease,
-        border-color 0.5s ease,
         box-shadow 0.5s ease;
 }
 
 .card:hover {
 
-    transform: translateY(-7px);
-
-    border-color: rgba(255,255,255,0.18);
+    transform: translateY(-8px);
 
     box-shadow:
-        0 25px 60px rgba(0,0,0,0.45);
+        0 25px 60px rgba(70,50,35,0.20);
 }
 
-/* IMAGE */
+
+/* =========================
+   SKETCH IMAGE
+========================= */
 
 .card img {
 
@@ -343,7 +389,7 @@ section {
     display: block;
 
     transition:
-        transform 0.8s cubic-bezier(.2,.7,.2,1),
+        transform 0.8s ease,
         filter 0.8s ease;
 }
 
@@ -351,10 +397,13 @@ section {
 
     transform: scale(1.045);
 
-    filter: brightness(1.08);
+    filter: brightness(1.04);
 }
 
-/* IMAGE NUMBER */
+
+/* =========================
+   VIEW LABEL
+========================= */
 
 .card::before {
 
@@ -363,10 +412,11 @@ section {
     position: absolute;
 
     top: 18px;
-
     right: 18px;
 
     z-index: 2;
+
+    padding: 9px 12px;
 
     font-family: Arial, sans-serif;
 
@@ -374,19 +424,17 @@ section {
 
     letter-spacing: 3px;
 
-    color: white;
+    color: #fff;
 
-    background: rgba(0,0,0,0.55);
+    background: rgba(45,34,26,0.70);
 
-    padding: 8px 10px;
+    backdrop-filter: blur(8px);
 
     opacity: 0;
 
     transform: translateY(-5px);
 
     transition: 0.4s ease;
-
-    backdrop-filter: blur(8px);
 }
 
 .card:hover::before {
@@ -396,11 +444,16 @@ section {
     transform: translateY(0);
 }
 
-/* CAPTION */
+
+/* =========================
+   CAPTION
+========================= */
 
 .card figcaption {
 
-    padding: 17px 18px;
+    padding: 18px;
+
+    background: #e9dccb;
 
     font-family: Arial, sans-serif;
 
@@ -408,32 +461,40 @@ section {
 
     letter-spacing: 1px;
 
-    color: #888;
-
-    background: #101115;
+    color: #655548;
 }
 
-/* LARGE THIRD IMAGE */
+
+/* Make third image wide */
 
 .card:nth-child(3) {
 
     grid-column: span 2;
 }
 
-/* QUOTE */
+
+/* =========================
+   QUOTE
+========================= */
 
 .quote {
 
-    text-align: center;
-
     padding: 170px 25px;
 
-    position: relative;
+    text-align: center;
+
+    background:
+        linear-gradient(
+            180deg,
+            transparent,
+            rgba(113,82,58,0.08),
+            transparent
+        );
 }
 
 .quote h2 {
 
-    font-size: clamp(38px, 8vw, 78px);
+    font-size: clamp(40px, 8vw, 80px);
 
     font-weight: 400;
 
@@ -441,7 +502,7 @@ section {
 
     letter-spacing: -3px;
 
-    color: #e7e4e8;
+    color: #30261f;
 }
 
 .quote p {
@@ -450,14 +511,17 @@ section {
 
     font-family: Arial, sans-serif;
 
-    color: #666;
-
     font-size: 11px;
 
     letter-spacing: 2px;
+
+    color: #776557;
 }
 
-/* FOOTER */
+
+/* =========================
+   FOOTER
+========================= */
 
 footer {
 
@@ -465,18 +529,21 @@ footer {
 
     text-align: center;
 
+    border-top: 1px solid rgba(60,45,35,0.12);
+
     font-family: Arial, sans-serif;
 
     font-size: 9px;
 
     letter-spacing: 4px;
 
-    color: #444;
-
-    border-top: 1px solid rgba(255,255,255,0.05);
+    color: #705f51;
 }
 
-/* LIGHTBOX */
+
+/* =========================
+   LIGHTBOX
+========================= */
 
 .lightbox {
 
@@ -486,8 +553,6 @@ footer {
 
     inset: 0;
 
-    background: rgba(4,4,6,0.96);
-
     z-index: 1000;
 
     align-items: center;
@@ -495,6 +560,8 @@ footer {
     justify-content: center;
 
     padding: 25px;
+
+    background: rgba(30,23,19,0.94);
 
     backdrop-filter: blur(12px);
 }
@@ -515,8 +582,10 @@ footer {
     to {
         opacity: 1;
     }
-
 }
+
+
+/* Enlarged image */
 
 .lightbox img {
 
@@ -526,7 +595,8 @@ footer {
 
     object-fit: contain;
 
-    box-shadow: 0 30px 100px rgba(0,0,0,0.7);
+    box-shadow:
+        0 30px 100px rgba(0,0,0,0.60);
 
     animation: imageZoom 0.4s ease;
 }
@@ -540,118 +610,106 @@ footer {
     to {
         transform: scale(1);
     }
-
 }
 
-/* CLOSE BUTTON */
+
+/* Close button */
 
 .lightbox-close {
 
     position: absolute;
 
     top: 20px;
-
     right: 25px;
 
     width: 45px;
-
     height: 45px;
 
     display: flex;
 
     align-items: center;
-
     justify-content: center;
+
+    border: 1px solid rgba(255,255,255,0.25);
+
+    border-radius: 50%;
+
+    color: white;
 
     font-family: Arial, sans-serif;
 
     font-size: 30px;
 
-    font-weight: 200;
-
-    color: #ddd;
-
     cursor: pointer;
-
-    border: 1px solid rgba(255,255,255,0.15);
-
-    border-radius: 50%;
 
     transition: 0.3s ease;
 }
 
 .lightbox-close:hover {
 
-    background: rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.12);
 
     transform: rotate(90deg);
 }
 
-/* MOBILE */
+
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 600px) {
 
     header {
-
-        padding: 30px 22px;
+        padding: 35px 22px;
     }
 
     .artist {
-
-        margin-bottom: 50px;
-
         font-size: 14px;
-
-        letter-spacing: 4px;
+        letter-spacing: 5px;
+        margin-bottom: 50px;
     }
 
     h1 {
-
         font-size: clamp(55px, 17vw, 90px);
-
         letter-spacing: -4px;
     }
 
     .subtitle {
-
         font-size: 13px;
-
-        max-width: 350px;
     }
 
     section {
-
         padding: 90px 18px;
     }
 
     .gallery {
-
         grid-template-columns: 1fr;
-
-        gap: 18px;
+        gap: 20px;
     }
 
     .card:nth-child(3) {
-
         grid-column: span 1;
     }
 
     .quote {
-
         padding: 120px 20px;
     }
 
     .quote h2 {
-
         letter-spacing: -2px;
     }
-
 }
 
 </style>
 </head>
 
+
 <body>
+
+
+<!-- =========================
+     HERO
+========================= -->
 
 <header>
 
@@ -680,158 +738,14 @@ footer {
 </header>
 
 
+<!-- =========================
+     GALLERY
+========================= -->
+
 <section>
 
     <div class="section-title">
-        Selected Works
-    </div>
-
-    <div class="gallery">
-
-        <figure class="card">
-
-            <img
-                src="IMG_20251013_202149934.jpg"
-                alt="Portrait Study"
-                onclick="openLightbox(this)"
-            >
-
-            <figcaption>
-                01 — Portrait Study
-            </figcaption>
-
-        </figure>
-
-
-        <figure class="card">
-
-            <img
-                src="IMG_20250502_143322888.jpg"
-                alt="Study in Pencil"
-                onclick="openLightbox(this)"
-            >
-
-            <figcaption>
-                02 — Study in Pencil
-            </figcaption>
-
-        </figure>
-
-
-        <figure class="card">
-
-            <img
-                src="IMG_20250317_140833650.jpg"
-                alt="Character Study"
-                onclick="openLightbox(this)"
-            >
-
-            <figcaption>
-                03 — Character Study
-            </figcaption>
-
-        </figure>
-
-
-        <figure class="card">
-
-            <img
-                src="IMG_20250308_175310628.jpg"
-                alt="Another Beginning"
-                onclick="openLightbox(this)"
-            >
-
-            <figcaption>
-                04 — Another Beginning
-            </figcaption>
-
-        </figure>
-
-    </div>
-
-</section>
-
-
-<div class="quote">
-
-    <h2>
-        I didn't realise<br>
-        I was improving.
-    </h2>
-
-    <p>
-        — A collection of the journey so far
-    </p>
-
-</div>
-
-
-<footer>
-
-    SOHAM SHINDE · THE SKETCHBOOK · 2026
-
-</footer>
-
-
-<!-- LIGHTBOX -->
-
-<div
-    class="lightbox"
-    id="lightbox"
-    onclick="closeLightbox(event)"
->
-
-    <span
-        class="lightbox-close"
-        onclick="closeLightbox(event)"
-    >
-        &times;
-    </span>
-
-    <img
-        id="lightboxImage"
-        src=""
-        alt="Enlarged sketch"
-        onclick="event.stopPropagation()"
-    >
-
-</div>
-
-
-<script>
-
-function openLightbox(image) {
-
-    const lightbox =
-        document.getElementById("lightbox");
-
-    const lightboxImage =
-        document.getElementById("lightboxImage");
-
-    lightboxImage.src = image.src;
-
-    lightbox.classList.add("active");
-}
-
-
-function closeLightbox(event) {
-
-    if (
-        event.target.id === "lightbox" ||
-        event.target.classList.contains("lightbox-close")
-    ) {
-
-        document
-            .getElementById("lightbox")
-            .classList.remove("active");
-
-    }
-
-}
-
-</script>
-
-</body>
-    </html>
-
-
+        Selected        
+        
+        
+            
