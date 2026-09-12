@@ -9,9 +9,7 @@
 
 <style>
 
-/* =========================
-   BASIC RESET
-========================= */
+/* RESET */
 
 * {
     box-sizing: border-box;
@@ -24,16 +22,14 @@ html {
 }
 
 body {
-    background: #d8c5ad;
-    color: #29221d;
+    background: #d6c2aa;
+    color: #2c241e;
     font-family: Georgia, "Times New Roman", serif;
     overflow-x: hidden;
 }
 
 
-/* =========================
-   MAIN BACKGROUND
-========================= */
+/* BACKGROUND */
 
 body::before {
     content: "";
@@ -46,30 +42,25 @@ body::before {
         radial-gradient(
             circle at 15% 10%,
             rgba(255,255,255,0.55),
-            transparent 28%
-        ),
-
-        radial-gradient(
-            circle at 85% 30%,
-            rgba(153,105,74,0.22),
             transparent 30%
         ),
-
+        radial-gradient(
+            circle at 85% 30%,
+            rgba(139,95,65,0.20),
+            transparent 32%
+        ),
         radial-gradient(
             circle at 40% 90%,
-            rgba(116,83,60,0.18),
+            rgba(110,75,50,0.16),
             transparent 35%
         );
 }
 
 
-/* =========================
-   HERO
-========================= */
+/* HERO */
 
 header {
     min-height: 100vh;
-
     padding: 45px 30px;
 
     display: flex;
@@ -82,40 +73,38 @@ header {
     background:
         radial-gradient(
             circle at 20% 20%,
-            rgba(255,255,255,0.50),
+            rgba(255,255,255,0.55),
             transparent 30%
         ),
-
         radial-gradient(
             circle at 90% 80%,
             rgba(121,83,59,0.25),
             transparent 35%
         ),
-
         linear-gradient(
             135deg,
-            #eadcc9,
+            #eadcca,
             #d3bca0,
             #b99b7d
         );
 }
 
 
-/* Moving soft light */
+/* SOFT MOVING LIGHT */
 
 header::after {
     content: "";
 
     position: absolute;
 
-    width: 300px;
-    height: 300px;
+    width: 320px;
+    height: 320px;
 
     border-radius: 50%;
 
-    background: rgba(255,255,255,0.16);
+    background: rgba(255,255,255,0.17);
 
-    filter: blur(70px);
+    filter: blur(75px);
 
     right: -100px;
     top: 15%;
@@ -135,9 +124,7 @@ header::after {
 }
 
 
-/* =========================
-   ARTIST NAME
-========================= */
+/* ARTIST NAME */
 
 .artist {
     font-family: "Times New Roman", serif;
@@ -158,9 +145,7 @@ header::after {
 }
 
 
-/* =========================
-   SMALL TITLE
-========================= */
+/* SMALL TITLE */
 
 .small {
     font-family: Arial, sans-serif;
@@ -181,9 +166,7 @@ header::after {
 }
 
 
-/* =========================
-   MAIN TITLE
-========================= */
+/* MAIN TITLE */
 
 h1 {
     font-size: clamp(60px, 14vw, 135px);
@@ -215,9 +198,7 @@ h1 {
 }
 
 
-/* =========================
-   DESCRIPTION
-========================= */
+/* DESCRIPTION */
 
 .subtitle {
     margin-top: 40px;
@@ -238,9 +219,7 @@ h1 {
 }
 
 
-/* =========================
-   SCROLL TEXT
-========================= */
+/* SCROLL */
 
 .scroll {
     margin-top: 75px;
@@ -252,6 +231,8 @@ h1 {
     letter-spacing: 4px;
 
     color: #66564a;
+
+    opacity: 0;
 
     animation:
         fadeUp 1s ease 1s forwards,
@@ -270,9 +251,7 @@ h1 {
 }
 
 
-/* =========================
-   FADE UP
-========================= */
+/* FADE */
 
 @keyframes fadeUp {
 
@@ -288,9 +267,7 @@ h1 {
 }
 
 
-/* =========================
-   GALLERY SECTION
-========================= */
+/* GALLERY SECTION */
 
 section {
     max-width: 1150px;
@@ -301,7 +278,7 @@ section {
 }
 
 
-/* Section title */
+/* SECTION TITLE */
 
 .section-title {
     font-family: Arial, sans-serif;
@@ -318,9 +295,7 @@ section {
 }
 
 
-/* =========================
-   GALLERY
-========================= */
+/* GALLERY */
 
 .gallery {
     display: grid;
@@ -328,27 +303,10 @@ section {
     grid-template-columns: repeat(2, 1fr);
 
     gap: 28px;
-
-    animation: galleryAppear 1.2s ease forwards;
-}
-
-@keyframes galleryAppear {
-
-    from {
-        opacity: 0;
-        transform: translateY(35px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 
-/* =========================
-   SKETCH CARDS
-========================= */
+/* CARD */
 
 .card {
     position: relative;
@@ -378,374 +336,8 @@ section {
 }
 
 
-/* =========================
-   SKETCH IMAGE
-========================= */
+/* IMAGE */
 
 .card img {
 
-    width: 100%;
-
-    display: block;
-
-    transition:
-        transform 0.8s ease,
-        filter 0.8s ease;
-}
-
-.card:hover img {
-
-    transform: scale(1.045);
-
-    filter: brightness(1.04);
-}
-
-
-/* =========================
-   VIEW LABEL
-========================= */
-
-.card::before {
-
-    content: "VIEW";
-
-    position: absolute;
-
-    top: 18px;
-    right: 18px;
-
-    z-index: 2;
-
-    padding: 9px 12px;
-
-    font-family: Arial, sans-serif;
-
-    font-size: 9px;
-
-    letter-spacing: 3px;
-
-    color: #fff;
-
-    background: rgba(45,34,26,0.70);
-
-    backdrop-filter: blur(8px);
-
-    opacity: 0;
-
-    transform: translateY(-5px);
-
-    transition: 0.4s ease;
-}
-
-.card:hover::before {
-
-    opacity: 1;
-
-    transform: translateY(0);
-}
-
-
-/* =========================
-   CAPTION
-========================= */
-
-.card figcaption {
-
-    padding: 18px;
-
-    background: #e9dccb;
-
-    font-family: Arial, sans-serif;
-
-    font-size: 11px;
-
-    letter-spacing: 1px;
-
-    color: #655548;
-}
-
-
-/* Make third image wide */
-
-.card:nth-child(3) {
-
-    grid-column: span 2;
-}
-
-
-/* =========================
-   QUOTE
-========================= */
-
-.quote {
-
-    padding: 170px 25px;
-
-    text-align: center;
-
-    background:
-        linear-gradient(
-            180deg,
-            transparent,
-            rgba(113,82,58,0.08),
-            transparent
-        );
-}
-
-.quote h2 {
-
-    font-size: clamp(40px, 8vw, 80px);
-
-    font-weight: 400;
-
-    line-height: 1;
-
-    letter-spacing: -3px;
-
-    color: #30261f;
-}
-
-.quote p {
-
-    margin-top: 30px;
-
-    font-family: Arial, sans-serif;
-
-    font-size: 11px;
-
-    letter-spacing: 2px;
-
-    color: #776557;
-}
-
-
-/* =========================
-   FOOTER
-========================= */
-
-footer {
-
-    padding: 50px 25px;
-
-    text-align: center;
-
-    border-top: 1px solid rgba(60,45,35,0.12);
-
-    font-family: Arial, sans-serif;
-
-    font-size: 9px;
-
-    letter-spacing: 4px;
-
-    color: #705f51;
-}
-
-
-/* =========================
-   LIGHTBOX
-========================= */
-
-.lightbox {
-
-    display: none;
-
-    position: fixed;
-
-    inset: 0;
-
-    z-index: 1000;
-
-    align-items: center;
-
-    justify-content: center;
-
-    padding: 25px;
-
-    background: rgba(30,23,19,0.94);
-
-    backdrop-filter: blur(12px);
-}
-
-.lightbox.active {
-
-    display: flex;
-
-    animation: lightboxFade 0.35s ease;
-}
-
-@keyframes lightboxFade {
-
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-
-/* Enlarged image */
-
-.lightbox img {
-
-    max-width: 94%;
-
-    max-height: 88vh;
-
-    object-fit: contain;
-
-    box-shadow:
-        0 30px 100px rgba(0,0,0,0.60);
-
-    animation: imageZoom 0.4s ease;
-}
-
-@keyframes imageZoom {
-
-    from {
-        transform: scale(0.92);
-    }
-
-    to {
-        transform: scale(1);
-    }
-}
-
-
-/* Close button */
-
-.lightbox-close {
-
-    position: absolute;
-
-    top: 20px;
-    right: 25px;
-
-    width: 45px;
-    height: 45px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    border: 1px solid rgba(255,255,255,0.25);
-
-    border-radius: 50%;
-
-    color: white;
-
-    font-family: Arial, sans-serif;
-
-    font-size: 30px;
-
-    cursor: pointer;
-
-    transition: 0.3s ease;
-}
-
-.lightbox-close:hover {
-
-    background: rgba(255,255,255,0.12);
-
-    transform: rotate(90deg);
-}
-
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 600px) {
-
-    header {
-        padding: 35px 22px;
-    }
-
-    .artist {
-        font-size: 14px;
-        letter-spacing: 5px;
-        margin-bottom: 50px;
-    }
-
-    h1 {
-        font-size: clamp(55px, 17vw, 90px);
-        letter-spacing: -4px;
-    }
-
-    .subtitle {
-        font-size: 13px;
-    }
-
-    section {
-        padding: 90px 18px;
-    }
-
-    .gallery {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .card:nth-child(3) {
-        grid-column: span 1;
-    }
-
-    .quote {
-        padding: 120px 20px;
-    }
-
-    .quote h2 {
-        letter-spacing: -2px;
-    }
-}
-
-</style>
-</head>
-
-
-<body>
-
-
-<!-- =========================
-     HERO
-========================= -->
-
-<header>
-
-    <div class="artist">
-        SOHAM SHINDE
-    </div>
-
-    <div class="small">
-        Personal Art Archive
-    </div>
-
-    <h1>
-        THE<br>
-        SKETCHBOOK
-    </h1>
-
-    <p class="subtitle">
-        A collection of drawings, experiments and moments
-        captured one line at a time.
-    </p>
-
-    <div class="scroll">
-        SCROLL TO EXPLORE ↓
-    </div>
-
-</header>
-
-
-<!-- =========================
-     GALLERY
-========================= -->
-
-<section>
-
-    <div class="section-title">
-        Selected        
-        
-        
-            
+    width: 100       
