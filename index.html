@@ -81,7 +81,20 @@ section {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 18px;
+    animation: fadeIn 1.2s ease;
 }
+    @keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    }
+
 
 .card {
     overflow: hidden;
