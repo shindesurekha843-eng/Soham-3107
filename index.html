@@ -14,9 +14,21 @@
 }
 
 body {
-    background: #0b0b0d;
+    background:
+        radial-gradient(circle at 20% 20%, #252126 0%, transparent 35%),
+        radial-gradient(circle at 80% 70%, #1c2025 0%, transparent 40%),
+        #0b0b0d;
     color: #f2f2f2;
     font-family: Georgia, serif;
+}
+    body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at center, transparent 45%, rgba(0,0,0,0.45) 100%);
+    z-index: 10;
 }
 
 header {
