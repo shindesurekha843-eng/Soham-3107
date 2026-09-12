@@ -4,289 +4,834 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>The Sketchbook</title>
+<title>Soham Shinde — The Sketchbook</title>
 
 <style>
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    background:
-        radial-gradient(circle at 20% 20%, #252126 0%, transparent 35%),
-        radial-gradient(circle at 80% 70%, #1c2025 0%, transparent 40%),
-        #0b0b0d;
+    background: #08090b;
     color: #f2f2f2;
     font-family: Georgia, serif;
+    overflow-x: hidden;
 }
-    body::before {
+
+/* CINEMATIC BACKGROUND */
+
+body::before {
     content: "";
     position: fixed;
     inset: 0;
     pointer-events: none;
+    z-index: -1;
+
     background:
-        radial-gradient(circle at center, transparent 45%, rgba(0,0,0,0.45) 100%);
-    z-index: 10;
+        radial-gradient(
+            circle at 15% 15%,
+            rgba(94, 72, 105, 0.25),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 70%,
+            rgba(45, 74, 85, 0.22),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(100, 75, 50, 0.10),
+            transparent 30%
+        );
 }
+
+/* HERO */
 
 header {
     min-height: 100vh;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 35px;
+
+    padding: 40px 30px;
+
+    position: relative;
+    overflow: hidden;
+
     background:
-        radial-gradient(circle at 15% 20%, #3a3038 0%, transparent 35%),
-        radial-gradient(circle at 85% 75%, #26333b 0%, transparent 40%),
-        #0b0b0d;
+        radial-gradient(
+            circle at 20% 25%,
+            rgba(72, 55, 76, 0.35),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 85% 75%,
+            rgba(35, 59, 68, 0.30),
+            transparent 38%
+        ),
+        #08090b;
 }
+
+/* subtle moving light */
+
+header::after {
+    content: "";
+    position: absolute;
+
+    width: 320px;
+    height: 320px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.025);
+
+    filter: blur(70px);
+
+    top: 20%;
+    right: -120px;
+
+    animation: floatLight 8s ease-in-out infinite alternate;
+}
+
+@keyframes floatLight {
+
+    from {
+        transform: translateY(-30px);
+    }
+
+    to {
+        transform: translateY(80px);
+    }
+
+}
+
+/* ARTIST NAME */
+
+.artist {
+    font-family: "Times New Roman", serif;
+
+    font-size: 17px;
+
+    letter-spacing: 5px;
+
+    text-transform: uppercase;
+
+    color: #d4d0d6;
+
+    margin-bottom: 65px;
+
+    opacity: 0;
+
+    animation: fadeUp 1s ease forwards;
+}
+
+/* SMALL LABEL */
 
 .small {
     font-family: Arial, sans-serif;
-    letter-spacing: 4px;
-    font-size: 11px;
-    color: #999;
+
+    letter-spacing: 5px;
+
+    font-size: 10px;
+
+    color: #777;
+
     text-transform: uppercase;
+
     margin-bottom: 25px;
+
+    opacity: 0;
+
+    animation: fadeUp 1s ease 0.2s forwards;
 }
+
+/* MAIN TITLE */
 
 h1 {
-    font-size: clamp(55px, 14vw, 130px);
-    line-height: 0.85;
+    font-size: clamp(58px, 14vw, 135px);
+
+    line-height: 0.83;
+
     font-weight: 400;
-    letter-spacing: -5px;
+
+    letter-spacing: -6px;
+
+    max-width: 900px;
+
+    opacity: 0;
+
+    animation: titleReveal 1.3s cubic-bezier(.2,.7,.2,1) 0.3s forwards;
 }
 
-.subtitle {
-    margin-top: 35px;
-    max-width: 430px;
-    color: #aaa;
-    font-family: Arial, sans-serif;
-    line-height: 1.7;
-    font-size: 14px;
-}
+@keyframes titleReveal {
 
-.scroll {
-    margin-top: 70px;
-    font-family: Arial, sans-serif;
-    font-size: 11px;
-    letter-spacing: 3px;
-    color: #777;
-}
-
-section {
-    padding: 80px 25px;
-    max-width: 1100px;
-    margin: auto;
-}
-
-.section-title {
-    font-family: Arial, sans-serif;
-    font-size: 11px;
-    letter-spacing: 4px;
-    color: #888;
-    text-transform: uppercase;
-    margin-bottom: 35px;
-}
-
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 18px;
-    animation: fadeIn 1.2s ease;
-}
-    @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(50px);
+        letter-spacing: -12px;
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        letter-spacing: -6px;
+    }
+
+}
+
+/* SUBTITLE */
+
+.subtitle {
+    margin-top: 38px;
+
+    max-width: 480px;
+
+    color: #999;
+
+    font-family: Arial, sans-serif;
+
+    line-height: 1.8;
+
+    font-size: 14px;
+
+    opacity: 0;
+
+    animation: fadeUp 1s ease 0.7s forwards;
+}
+
+/* SCROLL */
+
+.scroll {
+    margin-top: 75px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    color: #666;
+
+    opacity: 0;
+
+    animation:
+        fadeUp 1s ease 1s forwards,
+        pulse 2.5s ease-in-out 2s infinite;
+}
+
+@keyframes pulse {
+
+    0%, 100% {
+        opacity: 0.45;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+}
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
     }
 
     to {
         opacity: 1;
         transform: translateY(0);
     }
+
+}
+
+/* SECTION */
+
+section {
+    padding: 120px 25px;
+
+    max-width: 1150px;
+
+    margin: auto;
+}
+
+/* SECTION TITLE */
+
+.section-title {
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 5px;
+
+    color: #777;
+
+    text-transform: uppercase;
+
+    margin-bottom: 45px;
+}
+
+/* GALLERY */
+
+.gallery {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 25px;
+
+    animation: galleryReveal 1.2s ease forwards;
+}
+
+@keyframes galleryReveal {
+
+    from {
+        opacity: 0;
+        transform: translateY(35px);
     }
 
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+/* CARD */
 
 .card {
     overflow: hidden;
-    background: #151518;
+
+    background: #111216;
+
+    border: 1px solid rgba(255,255,255,0.07);
+
+    position: relative;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.5s ease,
+        border-color 0.5s ease,
+        box-shadow 0.5s ease;
 }
 
+.card:hover {
+
+    transform: translateY(-7px);
+
+    border-color: rgba(255,255,255,0.18);
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,0.45);
+}
+
+/* IMAGE */
+
 .card img {
+
     width: 100%;
+
     display: block;
-    transition: transform 0.6s ease;
+
+    transition:
+        transform 0.8s cubic-bezier(.2,.7,.2,1),
+        filter 0.8s ease;
 }
 
 .card:hover img {
-    transform: scale(1.04);
+
+    transform: scale(1.045);
+
+    filter: brightness(1.08);
 }
+
+/* IMAGE NUMBER */
+
+.card::before {
+
+    content: "VIEW";
+
+    position: absolute;
+
+    top: 18px;
+
+    right: 18px;
+
+    z-index: 2;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    color: white;
+
+    background: rgba(0,0,0,0.55);
+
+    padding: 8px 10px;
+
+    opacity: 0;
+
+    transform: translateY(-5px);
+
+    transition: 0.4s ease;
+
+    backdrop-filter: blur(8px);
+}
+
+.card:hover::before {
+
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+/* CAPTION */
 
 .card figcaption {
-    padding: 15px;
+
+    padding: 17px 18px;
+
     font-family: Arial, sans-serif;
-    font-size: 12px;
-    color: #999;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+
+    color: #888;
+
+    background: #101115;
 }
 
+/* LARGE THIRD IMAGE */
+
 .card:nth-child(3) {
+
     grid-column: span 2;
 }
 
+/* QUOTE */
+
 .quote {
+
     text-align: center;
-    padding: 140px 25px;
+
+    padding: 170px 25px;
+
+    position: relative;
 }
 
 .quote h2 {
-    font-size: clamp(35px, 8vw, 70px);
+
+    font-size: clamp(38px, 8vw, 78px);
+
     font-weight: 400;
+
     line-height: 1;
+
+    letter-spacing: -3px;
+
+    color: #e7e4e8;
 }
 
 .quote p {
-    margin-top: 25px;
+
+    margin-top: 30px;
+
     font-family: Arial, sans-serif;
-    color: #777;
-    font-size: 12px;
+
+    color: #666;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
 }
+
+/* FOOTER */
 
 footer {
-    padding: 40px 25px;
+
+    padding: 50px 25px;
+
     text-align: center;
+
     font-family: Arial, sans-serif;
-    font-size: 10px;
-    letter-spacing: 3px;
-    color: #555;
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+    color: #444;
+
+    border-top: 1px solid rgba(255,255,255,0.05);
 }
 
-@media (max-width: 600px) {
-    .gallery {
-        grid-template-columns: 1fr;
-    }
+/* LIGHTBOX */
 
-    .card:nth-child(3) {
-        grid-column: span 1;
-    }
-}
-    .lightbox {
+.lightbox {
+
     display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.92);
-    z-index: 100;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-}
 
-.lightbox img {
-    max-width: 95%;
-    max-height: 90vh;
-    object-fit: contain;
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(4,4,6,0.96);
+
+    z-index: 1000;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 25px;
+
+    backdrop-filter: blur(12px);
 }
 
 .lightbox.active {
+
     display: flex;
+
+    animation: lightboxFade 0.35s ease;
 }
 
-.lightbox-close {
-    position: absolute;
-    top: 20px;
-    right: 25px;
-    font-family: Arial, sans-serif;
-    font-size: 30px;
-    color: white;
-    cursor: pointer;
+@keyframes lightboxFade {
+
+    from {
+        opacity: 0;
     }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+.lightbox img {
+
+    max-width: 94%;
+
+    max-height: 88vh;
+
+    object-fit: contain;
+
+    box-shadow: 0 30px 100px rgba(0,0,0,0.7);
+
+    animation: imageZoom 0.4s ease;
+}
+
+@keyframes imageZoom {
+
+    from {
+        transform: scale(0.92);
+    }
+
+    to {
+        transform: scale(1);
+    }
+
+}
+
+/* CLOSE BUTTON */
+
+.lightbox-close {
+
+    position: absolute;
+
+    top: 20px;
+
+    right: 25px;
+
+    width: 45px;
+
+    height: 45px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 30px;
+
+    font-weight: 200;
+
+    color: #ddd;
+
+    cursor: pointer;
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    border-radius: 50%;
+
+    transition: 0.3s ease;
+}
+
+.lightbox-close:hover {
+
+    background: rgba(255,255,255,0.1);
+
+    transform: rotate(90deg);
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    header {
+
+        padding: 30px 22px;
+    }
+
+    .artist {
+
+        margin-bottom: 50px;
+
+        font-size: 14px;
+
+        letter-spacing: 4px;
+    }
+
+    h1 {
+
+        font-size: clamp(55px, 17vw, 90px);
+
+        letter-spacing: -4px;
+    }
+
+    .subtitle {
+
+        font-size: 13px;
+
+        max-width: 350px;
+    }
+
+    section {
+
+        padding: 90px 18px;
+    }
+
+    .gallery {
+
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+    }
+
+    .card:nth-child(3) {
+
+        grid-column: span 1;
+    }
+
+    .quote {
+
+        padding: 120px 20px;
+    }
+
+    .quote h2 {
+
+        letter-spacing: -2px;
+    }
+
+}
+
 </style>
 </head>
 
 <body>
 
 <header>
-    <div class="small">Personal Art Archive</div>
 
-    <h1>THE<br>SKETCHBOOK</h1>
+    <div class="artist">
+        SOHAM SHINDE
+    </div>
+
+    <div class="small">
+        Personal Art Archive
+    </div>
+
+    <h1>
+        THE<br>
+        SKETCHBOOK
+    </h1>
 
     <p class="subtitle">
         A collection of drawings, experiments and moments
         captured one line at a time.
     </p>
 
-    <div class="scroll">SCROLL TO EXPLORE ↓</div>
+    <div class="scroll">
+        SCROLL TO EXPLORE ↓
+    </div>
+
 </header>
 
+
 <section>
-    <div class="section-title">Selected Works</div>
+
+    <div class="section-title">
+        Selected Works
+    </div>
 
     <div class="gallery">
 
         <figure class="card">
-            <img src="IMG_20251013_202149934.jpg " alt="Sketch 1">
-            <figcaption>01 — Portrait Study</figcaption>
+
+            <img
+                src="IMG_20251013_202149934.jpg"
+                alt="Portrait Study"
+                onclick="openLightbox(this)"
+            >
+
+            <figcaption>
+                01 — Portrait Study
+            </figcaption>
+
         </figure>
 
-        <figure class="card">
-            <img src="IMG_20250502_143322888.jpg " alt="Sketch 2">
-            <figcaption>02 — Study in Pencil</figcaption>
-        </figure>
 
         <figure class="card">
-            <img src="IMG_20250317_140833650.jpg
- " alt="Sketch 3">
-            <figcaption>03 — Character Study</figcaption>
+
+            <img
+                src="IMG_20250502_143322888.jpg"
+                alt="Study in Pencil"
+                onclick="openLightbox(this)"
+            >
+
+            <figcaption>
+                02 — Study in Pencil
+            </figcaption>
+
         </figure>
 
+
         <figure class="card">
-            <img src="IMG_20250308_175310628.jpg " alt="Sketch 4">
-            <figcaption>04 — Another Beginning</figcaption>
+
+            <img
+                src="IMG_20250317_140833650.jpg"
+                alt="Character Study"
+                onclick="openLightbox(this)"
+            >
+
+            <figcaption>
+                03 — Character Study
+            </figcaption>
+
+        </figure>
+
+
+        <figure class="card">
+
+            <img
+                src="IMG_20250308_175310628.jpg"
+                alt="Another Beginning"
+                onclick="openLightbox(this)"
+            >
+
+            <figcaption>
+                04 — Another Beginning
+            </figcaption>
+
         </figure>
 
     </div>
+
 </section>
 
+
 <div class="quote">
+
     <h2>
         I didn't realise<br>
         I was improving.
     </h2>
 
-    <p>— A collection of the journey so far</p>
+    <p>
+        — A collection of the journey so far
+    </p>
+
 </div>
 
+
 <footer>
-    THE SKETCHBOOK · 2026
+
+    SOHAM SHINDE · THE SKETCHBOOK · 2026
+
 </footer>
-<div class="lightbox" id="lightbox">
-    <span class="lightbox-close" id="lightboxClose">&times;</span>
-    <img id="lightboxImage" src="" alt="Enlarged sketch">
-        </div>
-    <script>
-const images = document.querySelectorAll(".card img");
-const lightbox = document.getElementById("lightbox");
-const lightboxImage = document.getElementById("lightboxImage");
-const lightboxClose = document.getElementById("lightboxClose");
 
-images.forEach(img => {
-    img.addEventListener("click", () => {
-        lightboxImage.src = img.src;
-        lightbox.classList.add("active");
-    });
-});
 
-lightboxClose.addEventListener("click", () => {
-    lightbox.classList.remove("active");
-});
+<!-- LIGHTBOX -->
 
-lightbox.addEventListener("click", (e) => {
-    if (e.target === lightbox) {
-        lightbox.classList.remove("active");
+<div
+    class="lightbox"
+    id="lightbox"
+    onclick="closeLightbox(event)"
+>
+
+    <span
+        class="lightbox-close"
+        onclick="closeLightbox(event)"
+    >
+        &times;
+    </span>
+
+    <img
+        id="lightboxImage"
+        src=""
+        alt="Enlarged sketch"
+        onclick="event.stopPropagation()"
+    >
+
+</div>
+
+
+<script>
+
+function openLightbox(image) {
+
+    const lightbox =
+        document.getElementById("lightbox");
+
+    const lightboxImage =
+        document.getElementById("lightboxImage");
+
+    lightboxImage.src = image.src;
+
+    lightbox.classList.add("active");
+}
+
+
+function closeLightbox(event) {
+
+    if (
+        event.target.id === "lightbox" ||
+        event.target.classList.contains("lightbox-close")
+    ) {
+
+        document
+            .getElementById("lightbox")
+            .classList.remove("active");
+
     }
-});
-    </script>
+
+}
+
+</script>
+
 </body>
-  </html>
+    </html>
+
+
